@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>गीता ज्ञान — Bhagavad Gita Life Solutions</title>
+<meta name="description" content="Bhagavad Gita solutions for overthinking, anxiety, stress and life problems.">
+<meta id="dynamicMeta" name="keywords" content="Bhagavad Gita life solutions, Shloka for overthinking, गीता ज्ञान">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fdf8f0;
+  --maroon: #650c02;
+  --saffron: #bd4303;
+  --gold: #b58004;
+  --gold-light: #d4a017;
+  --text-main: #1a0d05;
+  --text-sub: #422a14;
+  --card: #fffdf7;
+  --border: #e2cb99;
+  --shadow: rgba(100,50,5,0.12);
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text-main); min-height:100vh; overflow-x:hidden; }
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image: radial-gradient(ellipse at 20% 20%,rgba(200,81,10,.06) 0%,transparent 60%), radial-gradient(ellipse at 80% 80%,rgba(201,146,10,.08) 0%,transparent 60%);
+}
+
+/* ── NAV ── */
+nav {
+  position:sticky; top:0; z-index:200;
+  background:rgba(253,248,240,.97); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  padding:10px 16px; display:flex; align-items:center; justify-content:space-between;
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
+}
+.nav-logo {
+  font-family:'Tiro Devanagari Sanskrit',serif; font-size:22px; color:var(--maroon);
+  font-weight:700; display:flex; align-items:center; gap:6px;
+}
+#logoText span { color:var(--gold); }
+.diya { display:inline-block; animation:diya-glow 1.5s infinite alternate; }
+@keyframes diya-glow {
+  from { text-shadow:0 0 4px #c8510a; transform:scale(1); }
+  to   { text-shadow:0 0 14px #ff6a00,0 0 28px #ff6a0066; transform:scale(1.1); }
+}
+
+/* nav right controls */
+.nav-right { display:flex; align-items:center; gap:8px; }
+
+/* Hi/En toggle — premium pill */
+.lang-toggle {
+  display:flex; align-items:center; background:var(--card);
+  border:1.5px solid var(--border); border-radius:999px; padding:3px; gap:2px;
+  box-shadow:0 2px 8px rgba(181,128,4,.10);
+}
+.lang-btn {
+  padding:5px 13px; border-radius:999px; font-size:12px; font-weight:700;
+  border:none; background:transparent; color:var(--text-sub); cursor:pointer; transition:.3s;
+  letter-spacing:.3px;
+}
+.lang-btn.active {
+  background:linear-gradient(135deg,var(--maroon),var(--saffron));
+  color:#fff; box-shadow:0 2px 10px rgba(101,12,2,.35);
+}
+
+/* Google Translate dropdown — premium */
+.gt-wrap {
+  position:relative;
+}
+.gt-btn {
+  display:flex; align-items:center; gap:6px;
+  background:linear-gradient(135deg,#fffbf4,#fff8ec);
+  border:1.5px solid var(--border); border-radius:10px;
+  padding:6px 10px; font-size:11px; font-weight:700; color:var(--maroon);
+  cursor:pointer; white-space:nowrap;
+  box-shadow:0 2px 8px rgba(181,128,4,.10);
+  transition:all .2s;
+}
+.gt-btn:hover { border-color:var(--gold); box-shadow:0 3px 12px rgba(181,128,4,.22); }
+.gt-btn .gt-globe { font-size:14px; }
+.gt-btn .gt-caret { font-size:9px; opacity:.6; }
+#google_translate_element { display:none; }
+/* hide Google's own widget bar */
+.goog-te-banner-frame { display:none !important; }
+body { top:0 !important; }
+
+/* ── HERO ── */
+.hero { position:relative; z-index:1; text-align:center; padding:40px 20px 20px; }
+.hero-om {
+  font-family:'Tiro Devanagari Sanskrit',serif; font-size:64px; color:var(--gold);
+  line-height:1; margin-bottom:14px; font-weight:100 !important;
+  text-shadow:0 0 20px rgba(181,128,4,.25), 0 2px 4px rgba(181,128,4,.15);
+  animation:gentle-float 4s ease-in-out infinite;
+}
+@keyframes gentle-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+
+/* premium hero text */
+.hero-title {
+  font-size:clamp(22px,5vw,36px); font-weight:800; color:var(--maroon);
+  margin-bottom:10px; line-height:1.25;
+  text-shadow:0 1px 0 rgba(255,255,255,.8), 0 2px 6px rgba(101,12,2,.12);
+  letter-spacing:-.3px;
+}
+.hero-sub {
+  font-size:15px; color:var(--text-sub); max-width:500px;
+  margin:0 auto 26px; line-height:1.65; font-weight:500;
+  background:linear-gradient(135deg,rgba(253,248,240,.0),rgba(253,248,240,.0));
+}
+
+/* ── SLIDER — full-width edges, square corners ── */
+.slider-container {
+  width:100vw; max-width:100vw;
+  margin-left:calc(-50vw + 50%); margin-right:calc(-50vw + 50%);
+  margin-bottom:28px;
+  position:relative; aspect-ratio:16/7;
+  overflow:hidden; border-radius:0;            /* square corners */
+  box-shadow:0 10px 30px rgba(100,50,5,.18);
+  border-top:2px solid rgba(255,255,255,.18);
+  border-bottom:2px solid rgba(255,255,255,.18);
+}
+.slide {
+  width:100%; height:100%; position:absolute; top:0; left:0;
+  opacity:0; transition:opacity .9s ease-in-out; object-fit:cover;
+}
+.slide.active { opacity:1; }
+/* slide dots */
+.slider-dots {
+  position:absolute; bottom:8px; left:50%; transform:translateX(-50%);
+  display:flex; gap:6px; z-index:5;
+}
+.sdot {
+  width:6px; height:6px; border-radius:50%;
+  background:rgba(255,255,255,.45); transition:.4s;
+}
+.sdot.active { width:18px; border-radius:4px; background:#fff; }
+
+/* ── ADS ── */
+.ad-mid-space { max-width:720px; margin:0 auto 22px; padding:0 16px; }
+.ad-box-banner {
+  background:linear-gradient(135deg,#f5ede0,#fdf3e3);
+  border:1.5px dashed var(--border); border-radius:12px;
+  text-align:center; padding:16px; min-height:80px;
+  display:flex; align-items:center; justify-content:center;
+}
+.ad-text-label { color:var(--gold); font-size:13px; font-weight:600; }
+.ad-bottom-space { max-width:720px; margin:0 auto 20px; padding:0 16px; }
+
+/* ── SEARCH BAR — premium ── */
+.search-wrap { width:100%; max-width:620px; margin:0 auto 28px; padding:0 16px; }
+.search-box {
+  display:flex; align-items:center; background:#fff;
+  border:2px solid rgba(181,128,4,.28); border-radius:50px;
+  padding:4px; width:100%; position:relative;
+  box-shadow:0 4px 16px rgba(181,128,4,.10),0 1px 3px rgba(0,0,0,.04);
+  transition:all .3s ease;
+}
+.search-box:focus-within {
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(181,128,4,.12), 0 8px 24px rgba(181,128,4,.18);
+  transform:translateY(-1px);
+}
+.search-icon { font-size:18px; color:var(--gold); margin-left:14px; margin-right:10px; opacity:.8; flex-shrink:0; }
+.search-input {
+  flex:1; border:none; outline:none; background:transparent;
+  font-size:15px; color:var(--text-main); padding:12px 0; padding-right:55px;
+  font-family:'Poppins',sans-serif;
+}
+.search-input::placeholder { color:#c0a070; }
+.search-input::-webkit-search-cancel-button { -webkit-appearance:none; }
+/* send/mic btn — glowing */
+.mic-btn {
+  width:46px; height:46px; border-radius:50%; border:none; outline:none;
+  background:linear-gradient(135deg,var(--maroon),var(--saffron));
+  color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  transition:all .3s cubic-bezier(.175,.885,.32,1.275); flex-shrink:0;
+  box-shadow:0 4px 14px rgba(101,12,2,.30);
+  position:absolute; right:4px; top:4px;
+  animation:btn-pulse 2.5s ease-in-out infinite;
+}
+@keyframes btn-pulse {
+  0%,100%{ box-shadow:0 4px 14px rgba(101,12,2,.30); }
+  50%    { box-shadow:0 4px 20px rgba(189,67,3,.55),0 0 0 5px rgba(181,128,4,.10); }
+}
+.mic-btn:hover { transform:scale(1.08); box-shadow:0 6px 20px rgba(101,12,2,.45); animation:none; }
+.mic-btn svg { width:20px; height:20px; }
+.mic-btn.arrow-mode { background:linear-gradient(135deg,#b58004,#e0a800); }
+
+/* ── RESULT CARD ── */
+.result-area { max-width:720px; margin:0 auto 28px; padding:0 16px; }
+.result-card {
+  background:var(--card); border:1.5px solid var(--border); border-radius:20px;
+  padding:28px 22px; box-shadow:0 8px 32px var(--shadow); border-top:5px solid var(--gold);
+  animation:slideUp .5s ease;
+}
+@keyframes slideUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+.shloka-title-tag { display:inline-block; font-size:12px; font-weight:700; color:var(--saffron); margin-bottom:14px; letter-spacing:.6px; text-transform:uppercase; }
+.shloka-text { font-family:'Tiro Devanagari Sanskrit',serif; font-size:20px; color:var(--maroon); line-height:1.85; text-align:center; font-weight:600; margin-bottom:6px; }
+.shloka-ref { text-align:center; font-size:13px; color:var(--gold); font-weight:600; margin-bottom:20px; }
+.divider { height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); margin:18px 0; }
+.meaning-title { font-size:13px; font-weight:700; color:var(--saffron); text-transform:uppercase; margin-bottom:7px; letter-spacing:.5px; }
+.meaning-text { font-size:15px; color:var(--text-main); line-height:1.7; margin-bottom:18px; }
+.example-text-line { font-size:15px; color:var(--text-sub); line-height:1.7; font-weight:500; }
+
+/* ── ACTION BAR (voice + share) — right-aligned, premium ── */
+.action-bar {
+  display:flex; gap:10px; justify-content:flex-end; margin-top:22px; align-items:center;
+}
+/* all 3 action btns share same glow style */
+.act-btn {
+  width:46px; height:46px; border-radius:50%; border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; font-size:19px;
+  transition:all .25s cubic-bezier(.175,.885,.32,1.275);
+  position:relative;
+}
+/* voice btn */
+.act-voice {
+  background:linear-gradient(135deg,var(--maroon),var(--saffron));
+  color:#fff;
+  box-shadow:0 4px 14px rgba(101,12,2,.35);
+  animation:voice-pulse 2.8s ease-in-out infinite;
+}
+@keyframes voice-pulse {
+  0%,100%{ box-shadow:0 4px 14px rgba(101,12,2,.35); }
+  50%    { box-shadow:0 4px 22px rgba(189,67,3,.60),0 0 0 6px rgba(189,67,3,.10); }
+}
+.act-voice:hover { transform:scale(1.12); animation:none; box-shadow:0 6px 22px rgba(101,12,2,.5); }
+
+/* share-apps btn */
+.act-share {
+  background:linear-gradient(135deg,#1a6d3e,#25a15a);
+  color:#fff;
+  box-shadow:0 4px 14px rgba(0,100,50,.30);
+  animation:share-pulse 3s ease-in-out infinite;
+}
+@keyframes share-pulse {
+  0%,100%{ box-shadow:0 4px 14px rgba(0,100,50,.30); }
+  50%    { box-shadow:0 4px 22px rgba(37,161,90,.55),0 0 0 6px rgba(37,161,90,.10); }
+}
+.act-share:hover { transform:scale(1.12); animation:none; }
+
+/* whatsapp status btn */
+.act-wa {
+  background:linear-gradient(135deg,#075e54,#25d366);
+  color:#fff;
+  box-shadow:0 4px 14px rgba(7,94,84,.35);
+  animation:wa-pulse 3.2s ease-in-out infinite;
+}
+@keyframes wa-pulse {
+  0%,100%{ box-shadow:0 4px 14px rgba(7,94,84,.35); }
+  50%    { box-shadow:0 4px 22px rgba(37,211,102,.60),0 0 0 6px rgba(37,211,102,.12); }
+}
+.act-wa:hover { transform:scale(1.12); animation:none; }
+.act-btn:active { transform:scale(.92) !important; }
+
+/* share popup sheet */
+.share-sheet {
+  display:none; position:fixed; bottom:0; left:0; right:0; z-index:500;
+  background:rgba(0,0,0,.5); animation:fadeIn .2s;
+}
+.share-sheet.open { display:block; }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.share-inner {
+  background:#fffbf5; border-radius:22px 22px 0 0; padding:22px 20px 30px;
+  max-width:480px; margin:0 auto;
+  animation:slideUp .3s ease;
+}
+.share-inner h3 { font-size:15px; font-weight:700; color:var(--maroon); margin-bottom:18px; text-align:center; }
+.share-grid { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.share-item {
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  cursor:pointer; transition:.2s;
+}
+.share-item:active { transform:scale(.9); }
+.share-item .si-icon {
+  width:52px; height:52px; border-radius:14px; display:flex; align-items:center;
+  justify-content:center; font-size:26px;
+  box-shadow:0 3px 10px rgba(0,0,0,.12);
+}
+.share-item span { font-size:11px; font-weight:600; color:var(--text-sub); }
+.si-wa  { background:linear-gradient(135deg,#075e54,#25d366); }
+.si-inst{ background:linear-gradient(135deg,#833ab4,#e1306c,#fd1d1d); }
+.si-tw  { background:#000; }
+.si-fb  { background:#1877f2; }
+.si-tg  { background:#229ed9; }
+.si-copy{ background:linear-gradient(135deg,var(--maroon),var(--saffron)); }
+.close-sheet { display:block; margin:18px auto 0; background:none; border:1.5px solid var(--border); color:var(--text-sub); padding:8px 28px; border-radius:20px; font-size:13px; cursor:pointer; font-weight:600; }
+
+/* ── EMPTY STATE ── */
+.empty-state { text-align:center; padding:38px 20px; color:var(--text-sub); }
+.empty-state .big-pray-emoji { font-size:46px; margin-bottom:10px; }
+.no-result { text-align:center; padding:30px; color:var(--text-sub); font-size:15px; font-weight:500; }
+
+/* ── GITA SANDESH ── */
+.gita-sandesh-section { background:#f7f3ec; padding:24px 15px; display:flex; justify-content:center; }
+.gita-sandesh-btn {
+  background:linear-gradient(135deg,#701d1f,#a83030);
+  color:#fff; border:none; padding:14px 28px; border-radius:30px;
+  font-size:17px; font-weight:700; cursor:pointer; width:100%; max-width:400px;
+  display:flex; justify-content:center; align-items:center; gap:8px;
+  box-shadow:0 6px 18px rgba(112,29,31,.35);
+  transition:all .25s; letter-spacing:.2px;
+}
+.gita-sandesh-btn:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(112,29,31,.45); }
+
+/* ── DARK FOOTER ── */
+.dark-footer {
+  background:#2c1e1d; color:#fff;
+  padding:24px 20px 16px;
+  display:flex; flex-direction:column; align-items:center; gap:12px;
+}
+.share-website-btn {
+  background:transparent; border:1.5px solid #d6a848; color:#d6a848;
+  padding:9px 26px; border-radius:30px; font-size:14px; font-weight:700;
+  cursor:pointer; display:flex; align-items:center; gap:8px; margin-bottom:4px;
+  transition:.25s;
+}
+.share-website-btn:hover { background:rgba(214,168,72,.12); }
+.share-icon { width:16px; height:16px; fill:currentColor; }
+.footer-links { display:flex; gap:24px; font-size:14px; margin-bottom:4px; }
+.footer-links span { color:#f7f3ec; cursor:pointer; border-bottom:1px solid #701d1f; padding-bottom:2px; }
+.footer-text { color:#8b7d7d; font-size:11.5px; text-align:center; line-height:1.5; max-width:90%; margin:0; }
+
+/* ── COOKIE BANNER ── */
+.cookie-banner {
+  position:fixed; bottom:0; left:0; width:100%; height:52px;
+  background:linear-gradient(135deg,var(--maroon),var(--saffron)); color:#fff;
+  padding:0 16px; display:flex; justify-content:space-between; align-items:center;
+  z-index:999; font-size:12px; border-radius:15px 15px 0 0;
+}
+.cookie-btn {
+  background:rgba(255,255,255,.2); border:1.5px solid rgba(255,255,255,.45); color:#fff;
+  padding:5px 14px; border-radius:20px; font-weight:700; cursor:pointer; font-size:11px;
+}
+
+/* ── MODALS ── */
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:1000;
+  display:none; justify-content:center; align-items:center;
+}
+.modal-content {
+  background:#fffbf7; width:90%; max-width:500px; border-radius:16px;
+  padding:22px; position:relative;
+  box-shadow:0 6px 20px rgba(0,0,0,.3); max-height:82vh; overflow-y:auto;
+}
+.close-modal-btn { position:absolute; top:14px; right:18px; font-size:22px; font-weight:700; color:var(--maroon); cursor:pointer; border:none; background:none; }
+.modal-title { color:var(--gold); font-size:21px; margin:0 0 14px; text-align:center; }
+.modal-text { color:var(--text-sub); font-size:14.5px; line-height:1.65; margin-bottom:14px; text-align:justify; }
+
+/* loading spinner */
+.loading-state { text-align:center; padding:32px 20px; color:var(--text-sub); }
+.spinner { width:36px; height:36px; border:3px solid var(--border); border-top-color:var(--saffron); border-radius:50%; animation:spin .7s linear infinite; margin:0 auto 12px; }
+@keyframes spin { to{transform:rotate(360deg)} }
+
+/* canvas for WA card (hidden) */
+#wa-canvas { display:none; }
+
+@media(max-width:600px) {
+  .hero { padding:32px 14px 18px; }
+  .hero-om { font-size:52px; }
+}
+</style>
+</head>
+<body>
+
+<!-- hidden canvas for image card generation -->
+<canvas id="wa-canvas" width="800" height="450"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="diya">🪔</span>
+    <div id="logoText"><span>गीता</span>ज्ञान</div>
+  </div>
+  <div class="nav-right">
+    <!-- Google Translate dropdown button -->
+    <div class="gt-wrap">
+      <button class="gt-btn" onclick="toggleGT()" id="gt-trigger">
+        <span class="gt-globe">🌐</span>
+        <span id="gt-label">Select Language</span>
+        <span class="gt-caret">▼</span>
+      </button>
+      <div id="google_translate_element"></div>
+    </div>
+    <!-- Hi/En toggle -->
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('hi')" id="btn-hi">हिंदी</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-om">ॐ</div>
+  <h1 class="hero-title" id="hero-title">श्रीमद्भगवद्गीता से जीवन का समाधान</h1>
+  <p class="hero-sub" id="hero-sub">अपनी समस्या लिखें या बोलें — गीता का श्लोक और उसका अर्थ तुरंत पाएं।</p>
+
+  <!-- SLIDER -->
+  <div class="slider-container" id="mainSlider">
+    <div class="slide active" style="background:linear-gradient(135deg,#7b1a0f,#c8510a);display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;color:#fff;padding:20px;font-family:'Tiro Devanagari Sanskrit',serif;">
+        <div style="font-size:clamp(28px,6vw,52px);font-weight:100;text-shadow:0 2px 12px rgba(0,0,0,.3);margin-bottom:8px;">ॐ</div>
+        <div style="font-size:clamp(12px,2.5vw,18px);opacity:.9;font-family:'Poppins',sans-serif;font-weight:300;letter-spacing:1px;">Bhagavad Gita — Wisdom for Life</div>
+      </div>
+    </div>
+    <div class="slide" style="background:linear-gradient(135deg,#3d1a02,#c9920a);display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;color:#fff;padding:20px;font-family:'Tiro Devanagari Sanskrit',serif;">
+        <div style="font-size:clamp(14px,3vw,22px);line-height:1.6;text-shadow:0 2px 8px rgba(0,0,0,.4);">कर्मण्येवाधिकारस्ते<br>मा फलेषु कदाचन</div>
+        <div style="font-size:clamp(10px,2vw,13px);opacity:.8;margin-top:8px;font-family:'Poppins',sans-serif;">— Bhagavad Gita 2.47</div>
+      </div>
+    </div>
+    <div class="slide" style="background:linear-gradient(135deg,#1a0d05,#6b3a1a);display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;color:#fff;padding:20px;">
+        <div style="font-size:clamp(14px,3vw,20px);line-height:1.6;font-family:'Tiro Devanagari Sanskrit',serif;text-shadow:0 2px 8px rgba(0,0,0,.4);">योगस्थः कुरु कर्माणि</div>
+        <div style="font-size:clamp(11px,2.2vw,15px);opacity:.85;margin-top:8px;font-family:'Poppins',sans-serif;font-weight:300;">Established in Yoga, perform your actions</div>
+      </div>
+    </div>
+    <div class="slider-dots" id="sliderDots">
+      <div class="sdot active"></div>
+      <div class="sdot"></div>
+      <div class="sdot"></div>
+    </div>
+  </div>
+
+  <!-- AD 1 -->
+  <div class="ad-mid-space">
+    <div class="ad-box-banner">
+      <span class="ad-text-label" id="ad1Label">📢 Advertisement Space (728×90)</span>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-wrap">
+    <form class="search-box" id="search-form" action="javascript:void(0);">
+      <span class="search-icon">🔍</span>
+      <input type="search" class="search-input" id="search-input" placeholder="overthinking, stress, तनाव..." autocomplete="off"/>
+      <button class="mic-btn" id="mic-btn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="22"/>
+        </svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-area" id="result-area">
+    <div class="empty-state">
+      <div class="big-pray-emoji">🙏</div>
+      <span id="empty-text">कोई भी समस्या लिखें और गीता का मार्गदर्शन पाएं।</span>
+    </div>
+  </div>
+
+  <!-- AD 2 -->
+  <div class="ad-bottom-space">
+    <div class="ad-box-banner">
+      <span class="ad-text-label" id="ad2Label">📢 Advertisement Space (728×90)</span>
+    </div>
+  </div>
+</div>
+
+<!-- GITA SANDESH -->
+<div class="gita-sandesh-section">
+  <button class="gita-sandesh-btn" id="sandeshBtnText" onclick="openModal('sandeshModal')">गीता का संदेश ➔</button>
+</div>
+
+<!-- DARK FOOTER -->
+<div class="dark-footer">
+  <button class="share-website-btn" onclick="shareWebsiteLogic()">
+    <svg class="share-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    <span id="shareBtnText">वेबसाइट साझा करें</span>
+  </button>
+  <div class="footer-links">
+    <span id="aboutLinkText" onclick="openModal('aboutModal')">हमारे बारे में</span>
+    <span id="privacyLinkText" onclick="openModal('privacyModal')">निजता नीति</span>
+  </div>
+  <p class="footer-text" id="copyrightText">© 2026 गीताज्ञान | भगवद गीता लाइफ सॉल्यूशंस | सर्वाधिकार सुरक्षित।</p>
+  <p class="footer-text" id="contactUsText">संपर्क करें: GitaGyan220@gmail.com</p>
+</div>
+
+<!-- SHARE BOTTOM SHEET -->
+<div class="share-sheet" id="shareSheet" onclick="closeShareSheet(event)">
+  <div class="share-inner" id="shareInner">
+    <h3 id="shareSheetTitle">शेयर करें</h3>
+    <div class="share-grid">
+      <div class="share-item" onclick="doShare('wa')">
+        <div class="si-icon si-wa">📲</div>
+        <span>WhatsApp</span>
+      </div>
+      <div class="share-item" onclick="doShare('inst')">
+        <div class="si-icon si-inst">📸</div>
+        <span>Instagram</span>
+      </div>
+      <div class="share-item" onclick="doShare('tw')">
+        <div class="si-icon si-tw" style="color:#fff;font-size:22px;font-weight:900;">𝕏</div>
+        <span>Twitter/X</span>
+      </div>
+      <div class="share-item" onclick="doShare('fb')">
+        <div class="si-icon si-fb">👍</div>
+        <span>Facebook</span>
+      </div>
+      <div class="share-item" onclick="doShare('tg')">
+        <div class="si-icon si-tg">✈️</div>
+        <span>Telegram</span>
+      </div>
+      <div class="share-item" onclick="doShare('copy')">
+        <div class="si-icon si-copy">🔗</div>
+        <span>Copy Link</span>
+      </div>
+    </div>
+    <button class="close-sheet" onclick="closeShareSheetDirect()">✕ बंद करें</button>
+  </div>
+</div>
+
+<!-- MODALS -->
+<div id="sandeshModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="close-modal-btn" onclick="closeModal('sandeshModal')">✖</button>
+    <h2 class="modal-title" id="mTitleSandesh">गीता का संदेश</h2>
+    <p class="modal-text" id="mTextSandesh1"></p>
+    <p class="modal-text" id="mTextSandesh2"></p>
+    <p class="modal-text" id="mTextSandesh3"></p>
+  </div>
+</div>
+<div id="aboutModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="close-modal-btn" onclick="closeModal('aboutModal')">✖</button>
+    <h2 class="modal-title" id="mTitleAbout"></h2>
+    <p class="modal-text" id="mTextAbout"></p>
+  </div>
+</div>
+<div id="privacyModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="close-modal-btn" onclick="closeModal('privacyModal')">✖</button>
+    <h2 class="modal-title" id="mTitlePrivacy"></h2>
+    <p class="modal-text" id="mTextPrivacy"></p>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner" class="cookie-banner">
+  <span id="cookieText">हम बेहतर अनुभव के लिए कुकीज़ का उपयोग करते हैं।</span>
+  <button class="cookie-btn" id="cookieBtnText" onclick="acceptCookies()">स्वीकार करें</button>
+</div>
+
+<!-- Google Translate script -->
+<script type="text/javascript">
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({
+    pageLanguage:'hi',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+function toggleGT(){
+  const el = document.getElementById('google_translate_element');
+  if(el.style.display === 'none' || !el.style.display){
+    el.style.cssText = 'display:block;position:absolute;top:44px;right:0;z-index:9999;background:#fffbf4;border:1.5px solid #e2cb99;border-radius:12px;padding:8px;box-shadow:0 6px 20px rgba(0,0,0,.15);min-width:160px;';
+  } else { el.style.display='none'; }
+}
+document.addEventListener('click', function(e){
+  const wrap = document.querySelector('.gt-wrap');
+  if(wrap && !wrap.contains(e.target)){
+    const el = document.getElementById('google_translate_element');
+    if(el) el.style.display='none';
+  }
+});
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+/* ========================================================
+   DATA
+======================================================== */
+const GITA_DB = {
+  overthinking: {
+    seoKeywords: "How to detach from outcomes, Spiritual meaning of overthinking, Bhagavad Gita quotes for anxiety",
+    hi: {
+      tag:"समाधान — OVERTHINKING",
+      shloka:"अनित्यमसुखं लोकमिमं प्राप्य भजस्व माम्।<br>क्लैब्यं मा स्म गमः पार्थ नैतत्त्वय्युपपद्यते।",
+      ref:"— भगवद्गीता 9.33 / 2.3",
+      meaning_title:"अर्थ",
+      meaning:"हे अर्जुन! यह संसार अनित्य और सुख-रहित है, इसलिए इसमें अत्यधिक आसक्ति रखकर चिंता में समय मत गँवाओ। कायरता को त्यागो और अपने कर्तव्य का पालन करो।",
+      example_title:"व्यावहारिक उदाहरण",
+      example:"💡 रात को जागकर भविष्य के बारे में लगातार सोचते रहना 'ओवरथिंकिंग' है। गीता सिखाती है कि परिणाम आपके हाथ में नहीं है, इसलिए सोच को रोकें और केवल वर्तमान कर्म पर ध्यान दें।"
+    },
+    en: {
+      tag:"SOLUTION — OVERTHINKING",
+      shloka:"Anityam asukhaṁ lokam imaṁ prāpya bhajasva mām.<br>Klaibyaṁ mā sma gamaḥ pārtha naitat tvayy upapadyate.",
+      ref:"— Bhagavad Gita 9.33 / 2.3",
+      meaning_title:"Meaning",
+      meaning:"O Arjuna! This world is transient and full of miseries; do not waste your vital energy in anxiety. Shake off this faint-heartedness and arise.",
+      example_title:"Modern Example",
+      example:"💡 Lying awake endlessly worrying about outcomes represents overthinking. The Gita advises that since outcomes are beyond your control, focus entirely on your current effort."
+    }
+  },
+  stress: {
+    seoKeywords: "Bhagavad Gita chapter 2 verse 47, Work without attachment, Stress management Gita",
+    hi: {
+      tag:"समाधान — STRESS / तनाव",
+      shloka:"कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥",
+      ref:"— भगवद्गीता 2.47",
+      meaning_title:"अर्थ",
+      meaning:"तुम्हारा अधिकार केवल अपने नियत कर्म को करने में है, उसके कर्मफलों पर कभी नहीं। स्वयं को परिणाम का कारण मत मानो।",
+      example_title:"व्यावहारिक उदाहरण",
+      example:"💡 ऑफिस की डेडलाइन को लेकर तनाव में आना। अपनी मेहनत में 100% इनपुट दें और आउटपुट की चिंता को छोड़ दें, तनाव अपने आप समाप्त हो जाएगा।"
+    },
+    en: {
+      tag:"SOLUTION — STRESS MANAGEMENT",
+      shloka:"Karmaṇy evādhikāras te mā phaleṣu kadācana.<br>Mā karma-phala-hetur bhūr mā te saṅgo 'stv akarmaṇi.",
+      ref:"— Bhagavad Gita 2.47",
+      meaning_title:"Meaning",
+      meaning:"You have a right to perform your duties, but you are never entitled to the fruits of your actions. Never consider yourself the cause of the results.",
+      example_title:"Modern Example",
+      example:"💡 Becoming highly stressed over workplace KPIs. The Gita provides a simple solution: focus on optimizing inputs and detach from the outputs."
+    }
+  }
+};
+
+const STEP2_KEYWORDS = {
+  overthinking:['overthinking','सोच','चिंता','future','भविष्य','worry','thought','tension','chinta'],
+  stress:['stress','तनाव','pressure','deadline','burden','बोझ','thaka','tanav']
+};
+
+const LABELS = {
+  hi:{
+    logo:'<span>गीता</span>ज्ञान', heroTitle:'श्रीमद्भगवद्गीता से जीवन का समाधान',
+    heroSub:'अपनी समस्या लिखें या बोलें — गीता का श्लोक और उसका अर्थ तुरंत पाएं।',
+    searchPh:'overthinking, stress, तनाव...', emptyText:'कोई भी समस्या लिखें और गीता का मार्गदर्शन पाएं।',
+    noResult:'🙏 इस विषय पर अभी मार्गदर्शन उपलब्ध नहीं है। "overthinking" या "stress" लिखकर देखें।',
+    ad1:'📢 Advertisement Space (728×90)', ad2:'📢 Advertisement Space (728×90)',
+    sandeshBtn:'गीता का संदेश ➔', shareBtn:'वेबसाइट साझा करें',
+    aboutLink:'हमारे बारे में', privacyLink:'निजता नीति',
+    copyright:'© 2026 गीताज्ञान | भगवद गीता लाइफ सॉल्यूशंस | सर्वाधिकार सुरक्षित।',
+    contactUs:'संपर्क करें: GitaGyan220@gmail.com',
+    cookieTxt:'हम बेहतर अनुभव के लिए कुकीज़ का उपयोग करते हैं।', cookieBtn:'स्वीकार करें',
+    gtLabel:'भाषा चुनें',
+    shareSheetTitle:'शेयर करें',
+    shareText:'देखिए गीता का यह अद्भुत व्यावहारिक ज्ञान: ',
+    shareWebText:'देखिए गीता का यह अद्भुत ज्ञान: ',
+    mTitleSandesh:'गीता का संदेश',
+    mTextSandesh1:'आज की भागदौड़ भरी जिंदगी में, मानसिक शांति और आध्यात्मिक ऊर्जा पाना बहुत जरूरी हो गया है। भगवान कृष्ण द्वारा दिए गए भगवद गीता के उपदेश हमें जीवन की कठिन परिस्थितियों से निपटने की शक्ति देते हैं।',
+    mTextSandesh2:'कई लोग मानसिक शांति के लिए गीता के अनमोल वचनों का पाठ करते हैं, जो उन्हें सही दिशा दिखाते हैं। गीता में दिए गए मानसिक स्पष्टता के उपाय हमें भ्रम से निकालकर सत्य की ओर ले जाते हैं।',
+    mTextSandesh3:'भगवद गीता केवल एक धार्मिक ग्रंथ नहीं है, बल्कि यह जीवन जीने की एक पूरी कला है। कर्म योग, भक्ति योग और ज्ञान योग के माध्यम से मनुष्य अपने वास्तविक स्वरूप को जानता है। आत्म-नियंत्रण और निरंतर अभ्यास से हम मन को वश में कर सकते हैं।',
+    mTitleAbout:'हमारे बारे में',
+    mTextAbout:'गीताज्ञान का उद्देश्य आधुनिक समस्याओं का समाधान प्राचीन ज्ञान के माध्यम से प्रदान करना है। हम आपको भगवद गीता की शिक्षाओं के जरिए मानसिक शांति और सही दिशा खोजने में मदद करते हैं।',
+    mTitlePrivacy:'निजता नीति',
+    mTextPrivacy:'हम आपकी निजता का पूरा सम्मान करते हैं। इस वेबसाइट पर आपकी जानकारी किसी तीसरे पक्ष के साथ साझा नहीं की जाती।'
+  },
+  en:{
+    logo:'<span>Gita</span>Gyan', heroTitle:'Life Solutions from the Bhagavad Gita',
+    heroSub:'Type or speak your problem — get an instant Shloka and its meaning.',
+    searchPh:'overthinking, stress, worry...', emptyText:'Type any problem and receive Gita\'s guidance.',
+    noResult:'🙏 No guidance available yet. Try "overthinking" or "stress".',
+    ad1:'📢 Advertisement Space (728×90)', ad2:'📢 Advertisement Space (728×90)',
+    sandeshBtn:'Message of Gita ➔', shareBtn:'Share Website',
+    aboutLink:'About Us', privacyLink:'Privacy Policy',
+    copyright:'© 2026 GitaGyan | Bhagavad Gita Life Solutions | All Rights Reserved.',
+    contactUs:'Contact Us: GitaGyan220@gmail.com',
+    cookieTxt:'We use cookies for a better experience.', cookieBtn:'Allow',
+    gtLabel:'Select Language',
+    shareSheetTitle:'Share',
+    shareText:'See this amazing Gita wisdom: ',
+    shareWebText:'See this amazing Gita wisdom: ',
+    mTitleSandesh:'Message of Gita',
+    mTextSandesh1:'In today\'s fast-paced world, achieving spiritual healing and inner peace has become essential. The Bhagavad Gita solutions provided by Lord Krishna give us the strength to overcome difficult life situations.',
+    mTextSandesh2:'Many people turn to Gita wisdom to find peace and direction. The mental clarity tips in the Gita guide us out of confusion towards truth. This is why the message of the Gita remains relevant across ages.',
+    mTextSandesh3:'The Bhagavad Gita is not just a religious text, but a complete art of living. Through Karma Yoga, Bhakti Yoga, and Jnana Yoga it enlightens humanity about its true nature. Through self-control and practice, we can master our minds and lead a joyful, peaceful life.',
+    mTitleAbout:'About Us',
+    mTextAbout:'The aim of GitaGyan is to provide solutions to modern problems through ancient wisdom. We help you find inner peace and the right direction through the teachings of the Bhagavad Gita.',
+    mTitlePrivacy:'Privacy Policy',
+    mTextPrivacy:'We respect your privacy. No personal information is shared with any third party.'
+  }
+};
+
+/* ========================================================
+   STATE
+======================================================== */
+let currentLang = 'hi';
+let isArrowMode = false;
+let isPlayingAudio = false;
+let currentTopic = null;
+let currentTopicData = null;
+const speechUtterance = new SpeechSynthesisUtterance();
+
+/* localStorage cache */
+const CACHE_KEY = 'gita_search_cache';
+function getCache(){ try{ return JSON.parse(localStorage.getItem(CACHE_KEY))||{}; }catch(e){return {};} }
+function setCache(key,val){ try{ const c=getCache(); c[key]=val; localStorage.setItem(CACHE_KEY,JSON.stringify(c)); }catch(e){} }
+
+const SVG_MIC = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>`;
+const SVG_ARROW = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`;
+
+/* ========================================================
+   LANG
+======================================================== */
+function setLang(lang){
+  currentLang = lang;
+  document.getElementById('btn-hi').classList.toggle('active', lang==='hi');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  const L = LABELS[lang];
+  document.getElementById('logoText').innerHTML = L.logo;
+  document.getElementById('hero-title').textContent = L.heroTitle;
+  document.getElementById('hero-sub').textContent = L.heroSub;
+  document.getElementById('search-input').placeholder = L.searchPh;
+  document.getElementById('ad1Label').textContent = L.ad1;
+  document.getElementById('ad2Label').textContent = L.ad2;
+  document.getElementById('sandeshBtnText').textContent = L.sandeshBtn;
+  document.getElementById('shareBtnText').textContent = L.shareBtn;
+  document.getElementById('aboutLinkText').textContent = L.aboutLink;
+  document.getElementById('privacyLinkText').textContent = L.privacyLink;
+  document.getElementById('copyrightText').textContent = L.copyright;
+  document.getElementById('contactUsText').textContent = L.contactUs;
+  document.getElementById('cookieText').textContent = L.cookieTxt;
+  document.getElementById('cookieBtnText').textContent = L.cookieBtn;
+  document.getElementById('gt-label').textContent = L.gtLabel;
+  document.getElementById('shareSheetTitle').textContent = L.shareSheetTitle;
+  document.getElementById('mTitleSandesh').textContent = L.mTitleSandesh;
+  document.getElementById('mTextSandesh1').textContent = L.mTextSandesh1;
+  document.getElementById('mTextSandesh2').textContent = L.mTextSandesh2;
+  document.getElementById('mTextSandesh3').textContent = L.mTextSandesh3;
+  document.getElementById('mTitleAbout').textContent = L.mTitleAbout;
+  document.getElementById('mTextAbout').textContent = L.mTextAbout;
+  document.getElementById('mTitlePrivacy').textContent = L.mTitlePrivacy;
+  document.getElementById('mTextPrivacy').textContent = L.mTextPrivacy;
+  const emptyEl = document.getElementById('empty-text');
+  if(emptyEl && !document.querySelector('.result-card')) emptyEl.textContent = L.emptyText;
+  else if(currentTopic) showResultCard(currentTopic);
+}
+
+/* ========================================================
+   SEARCH
+======================================================== */
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+const micBtn = document.getElementById('mic-btn');
+
+searchInput.addEventListener('input',()=>{
+  if(searchInput.value.trim().length>0){ micBtn.innerHTML=SVG_ARROW; micBtn.classList.add('arrow-mode'); isArrowMode=true; }
+  else{ micBtn.innerHTML=SVG_MIC; micBtn.classList.remove('arrow-mode'); isArrowMode=false; }
+});
+
+function findTopicKey(q){
+  q=q.toLowerCase();
+  for(const [topic,kws] of Object.entries(STEP2_KEYWORDS)){
+    if(kws.some(kw=>q.includes(kw))) return topic;
+  }
+  return null;
+}
+
+async function executeSearch(){
+  const query = searchInput.value.trim();
+  if(!query) return;
+  searchInput.blur();
+
+  /* check cache first */
+  const cacheKey = query.toLowerCase();
+  const cached = getCache()[cacheKey];
+  if(cached){
+    currentTopic = cached.topic;
+    if(cached.topic && GITA_DB[cached.topic]){
+      showResultCard(cached.topic);
+    } else {
+      showNoResult();
+    }
+    return;
+  }
+
+  const localTopic = findTopicKey(query);
+  if(localTopic){
+    setCache(cacheKey,{topic:localTopic});
+    currentTopic=localTopic;
+    try{ history.pushState({problem:localTopic},'','?problem='+localTopic); }catch(e){}
+    showResultCard(localTopic);
+    return;
+  }
+
+  /* Gemini fallback via /api/gita (Vercel serverless) */
+  showLoading();
+  try{
+    const resp = await fetch('/api/gita?q='+encodeURIComponent(query)+'&lang='+currentLang);
+    if(resp.ok){
+      const d = await resp.json();
+      if(d && d.topic && GITA_DB[d.topic]){
+        setCache(cacheKey,{topic:d.topic});
+        currentTopic=d.topic;
+        showResultCard(d.topic);
+      } else { showNoResult(); }
+    } else { showNoResult(); }
+  }catch(e){ showNoResult(); }
+}
+
+function showLoading(){
+  document.getElementById('result-area').innerHTML=`<div class="loading-state"><div class="spinner"></div><span>${currentLang==='hi'?'गीता का मार्गदर्शन खोज रहे हैं...':'Searching Gita\'s guidance...'}</span></div>`;
+}
+
+function showNoResult(){
+  document.getElementById('result-area').innerHTML=`<div class="no-result">${LABELS[currentLang].noResult}</div>`;
+}
+
+searchForm.addEventListener('submit',e=>{ e.preventDefault(); executeSearch(); });
+micBtn.addEventListener('click',e=>{ e.preventDefault(); if(isArrowMode) executeSearch(); else alert(currentLang==='hi'?'वॉइस सर्च: बटन को दबाकर रखें':'Voice search: hold the button'); });
+
+/* ========================================================
+   RESULT CARD
+======================================================== */
+function showResultCard(topic){
+  const data = GITA_DB[topic][currentLang];
+  currentTopicData = data;
+  const metaTag = document.getElementById('dynamicMeta');
+  if(metaTag) metaTag.content = GITA_DB[topic].seoKeywords;
+  document.title=(currentLang==='hi'?'गीता समाधान: ':'Gita Solution: ')+topic;
+
+  document.getElementById('result-area').innerHTML=`
+    <div class="result-card">
+      <span class="shloka-title-tag">✨ ${data.tag}</span>
+      <div class="shloka-text" id="shloka-text-el">${data.shloka}</div>
+      <div class="shloka-ref">${data.ref}</div>
+      <div class="divider"></div>
+      <div class="meaning-title">${data.meaning_title}</div>
+      <div class="meaning-text" id="audio-meaning">${data.meaning}</div>
+      <div class="meaning-title">${data.example_title}</div>
+      <div class="example-text-line" id="audio-example">${data.example}</div>
+      <div class="action-bar">
+        <button class="act-btn act-voice" id="audio-toggle-btn" onclick="toggleSpeechAudio()" title="Play Audio">🔊</button>
+        <button class="act-btn act-share" onclick="openShareSheet()" title="Share">📤</button>
+        <button class="act-btn act-wa" onclick="shareWhatsAppStatus()" title="WhatsApp Status">
+          <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.523 5.858L0 24l6.335-1.496A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.378l-.36-.214-3.732.881.936-3.618-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
+        </button>
+      </div>
+    </div>`;
+
+  document.getElementById('result-area').scrollIntoView({behavior:'smooth',block:'start'});
+  stopSpeechAudioDirect();
+}
+
+/* ========================================================
+   AUDIO
+======================================================== */
+function toggleSpeechAudio(){
+  const btn = document.getElementById('audio-toggle-btn');
+  if(isPlayingAudio){ stopSpeechAudioDirect(); return; }
+  const m = document.getElementById('audio-meaning');
+  const ex = document.getElementById('audio-example');
+  if(!m) return;
+  speechUtterance.text = m.innerText + '. ' + (ex?ex.innerText:'');
+  speechUtterance.lang = currentLang==='hi'?'hi-IN':'en-US';
+  window.speechSynthesis.speak(speechUtterance);
+  btn.textContent='⏹'; isPlayingAudio=true;
+  speechUtterance.onend=()=>{ btn.textContent='🔊'; isPlayingAudio=false; };
+}
+function stopSpeechAudioDirect(){
+  window.speechSynthesis.cancel();
+  const btn=document.getElementById('audio-toggle-btn');
+  if(btn) btn.textContent='🔊';
+  isPlayingAudio=false;
+}
+
+/* ========================================================
+   SHARE SHEET
+======================================================== */
+function openShareSheet(){
+  document.getElementById('shareSheet').classList.add('open');
+}
+function closeShareSheet(e){
+  if(e && e.target!==document.getElementById('shareSheet')) return;
+  closeShareSheetDirect();
+}
+function closeShareSheetDirect(){
+  document.getElementById('shareSheet').classList.remove('open');
+}
+
+function getSharePayload(){
+  const url = window.location.href;
+  const txt = LABELS[currentLang].shareText + url;
+  return {url, txt};
+}
+
+function doShare(platform){
+  const {url, txt} = getSharePayload();
+  closeShareSheetDirect();
+  const enc = encodeURIComponent(txt);
+  const encUrl = encodeURIComponent(url);
+  const map = {
+    wa: `whatsapp://send?text=${enc}`,
+    inst: ()=>{ navigator.share?navigator.share({title:'Gita Gyan',text:txt,url}):navigator.clipboard.writeText(url); },
+    tw: `https://twitter.com/intent/tweet?text=${enc}`,
+    fb: `https://www.facebook.com/sharer/sharer.php?u=${encUrl}`,
+    tg: `https://t.me/share/url?url=${encUrl}&text=${encodeURIComponent(LABELS[currentLang].shareText)}`,
+    copy: ()=>{ navigator.clipboard.writeText(url); alert(currentLang==='hi'?'लिंक कॉपी हो गया! 🙏':'Link Copied! 🙏'); }
+  };
+  if(typeof map[platform]==='function'){ map[platform](); }
+  else if(map[platform]){ window.open(map[platform],'_blank'); }
+}
+
+/* WhatsApp status share — generates image card via canvas */
+function shareWhatsAppStatus(){
+  closeShareSheetDirect();
+  const data = currentTopicData;
+  if(!data){ shareWhatsAppText(); return; }
+
+  const canvas = document.getElementById('wa-canvas');
+  const ctx = canvas.getContext('2d');
+  const W=800, H=450;
+  canvas.width=W; canvas.height=H;
+
+  /* background */
+  const grad = ctx.createLinearGradient(0,0,W,H);
+  grad.addColorStop(0,'#5a0800');
+  grad.addColorStop(0.5,'#8b1a0a');
+  grad.addColorStop(1,'#3d0d02');
+  ctx.fillStyle=grad; ctx.fillRect(0,0,W,H);
+
+  /* subtle pattern */
+  ctx.fillStyle='rgba(255,255,255,.03)';
+  for(let i=0;i<W;i+=40){ ctx.fillRect(i,0,1,H); }
+  for(let j=0;j<H;j+=40){ ctx.fillRect(0,j,W,1); }
+
+  /* gold border */
+  ctx.strokeStyle='#b58004'; ctx.lineWidth=4;
+  ctx.strokeRect(12,12,W-24,H-24);
+
+  /* OM symbol */
+  ctx.font='52px serif'; ctx.fillStyle='#d4a017';
+  ctx.textAlign='center'; ctx.fillText('ॐ', W/2, 75);
+
+  /* shloka — strip HTML tags */
+  const shlokaClean = data.shloka.replace(/<br\s*\/?>/gi,'\n').replace(/<[^>]+>/g,'');
+  ctx.font='bold 22px serif'; ctx.fillStyle='#fdf8f0';
+  ctx.textAlign='center';
+  const lines = shlokaClean.split('\n');
+  lines.forEach((line,i)=>{ ctx.fillText(line, W/2, 125+i*34); });
+
+  /* ref */
+  ctx.font='15px Arial'; ctx.fillStyle='#d4a017';
+  ctx.fillText(data.ref, W/2, 125+lines.length*34+18);
+
+  /* divider */
+  ctx.strokeStyle='rgba(181,128,4,.5)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(60, 210); ctx.lineTo(W-60, 210); ctx.stroke();
+
+  /* meaning — short version max 2 lines */
+  const meaning = data.meaning.substring(0,120)+(data.meaning.length>120?'…':'');
+  ctx.font='17px Arial'; ctx.fillStyle='rgba(255,255,255,.88)';
+  wrapText(ctx, meaning, W/2-300, 240, 600, 26);
+
+  /* CTA button graphic */
+  const btnY=370;
+  ctx.fillStyle='#b58004';
+  roundRect(ctx, W/2-140, btnY, 280, 42, 21); ctx.fill();
+  ctx.font='bold 15px Arial'; ctx.fillStyle='#fff';
+  const siteUrl = window.location.hostname||'GitaGyan.app';
+  ctx.fillText('पूरा पढ़ें — '+siteUrl, W/2, btnY+27);
+
+  /* watermark */
+  ctx.font='12px Arial'; ctx.fillStyle='rgba(255,255,255,.35)';
+  ctx.fillText('GitaGyan — Bhagavad Gita Life Solutions', W/2, H-18);
+
+  /* share as image */
+  canvas.toBlob(blob=>{
+    if(!blob){ shareWhatsAppText(); return; }
+    const file = new File([blob],'gita-gyan.png',{type:'image/png'});
+    const shareData = {
+      files:[file],
+      title:'गीता ज्ञान',
+      text:LABELS[currentLang].shareText + window.location.href
+    };
+    if(navigator.canShare && navigator.canShare(shareData)){
+      navigator.share(shareData).catch(()=>shareWhatsAppText());
+    } else {
+      shareWhatsAppText();
+    }
+  },'image/png');
+}
+
+function shareWhatsAppText(){
+  const txt = LABELS[currentLang].shareText + window.location.href;
+  window.open('whatsapp://send?text='+encodeURIComponent(txt),'_blank');
+}
+
+/* canvas helpers */
+function wrapText(ctx,text,x,y,maxW,lineH){
+  const words=text.split(' '); let line=''; let ly=y;
+  words.forEach(word=>{
+    const test=line+(line?' ':'')+word;
+    if(ctx.measureText(test).width>maxW && line){ ctx.fillText(line,x+maxW/2,ly); line=word; ly+=lineH; }
+    else line=test;
+  });
+  if(line) ctx.fillText(line,x+maxW/2,ly);
+}
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath(); ctx.moveTo(x+r,y);
+  ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath();
+}
+
+/* ========================================================
+   FOOTER SHARE
+======================================================== */
+function shareWebsiteLogic(){
+  const txt = LABELS[currentLang].shareWebText + window.location.href;
+  if(navigator.share){
+    navigator.share({title:'Gita Gyan',text:txt,url:window.location.href}).catch(console.error);
+  } else {
+    alert(currentLang==='hi'?'लिंक कॉपी करें: '+window.location.href:'Copy link: '+window.location.href);
+  }
+}
+
+/* ========================================================
+   POPSTATE
+======================================================== */
+window.addEventListener('popstate',(event)=>{
+  if(event.state && event.state.problem){
+    searchInput.value=event.state.problem;
+    showResultCard(event.state.problem);
+  } else {
+    document.getElementById('result-area').innerHTML=`<div class="empty-state"><div class="big-pray-emoji">🙏</div><span id="empty-text">${LABELS[currentLang].emptyText}</span></div>`;
+    searchInput.value=''; micBtn.innerHTML=SVG_MIC; micBtn.classList.remove('arrow-mode');
+    isArrowMode=false; currentTopic=null; currentTopicData=null; stopSpeechAudioDirect();
+  }
+});
+
+/* ========================================================
+   MODALS
+======================================================== */
+function openModal(id){ document.getElementById(id).style.display='flex'; }
+function closeModal(id){ document.getElementById(id).style.display='none'; }
+window.addEventListener('click',e=>{ if(e.target.classList.contains('modal-overlay')) e.target.style.display='none'; });
+
+/* ========================================================
+   COOKIES
+======================================================== */
+function checkCookies(){ if(localStorage.getItem('gita_cookie_accepted')==='true') document.getElementById('cookieBanner').style.display='none'; }
+function acceptCookies(){ localStorage.setItem('gita_cookie_accepted','true'); document.getElementById('cookieBanner').style.display='none'; }
+
+/* ========================================================
+   SLIDER
+======================================================== */
+let currentSlide=0;
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.sdot');
+if(slides.length>0){
+  setInterval(()=>{
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide=(currentSlide+1)%slides.length;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  },3200);
+}
+
+/* ========================================================
+   INIT
+======================================================== */
+window.onload=()=>{ checkCookies(); setLang('hi'); };
+</script>
+</body>
+</html>
