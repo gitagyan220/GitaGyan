@@ -754,46 +754,96 @@ function findTopicKey(q){
 }
 
 async function executeSearch(){
-  const query = searchInput.value.trim();
+  const query = searchInput.value.trim().toLowerCase();
   if(!query) return;
   searchInput.blur();
 
-  /* check cache first */
-  const cacheKey = query.toLowerCase();
-  const cached = getCache()[cacheKey];
-  if(cached){
-    currentTopic = cached.topic;
-    if(cached.topic && GITA_DB[cached.topic]){
-      showResultCard(cached.topic);
+  showLoading();
+
+  try {
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/10LezhJKrVdErVJEXy9r7RCePrhh20O5licGjTKBAbwo/gviz/tq?tqx=out:csv";
+    const response = await fetch(sheetUrl);
+    const text = await response.text();
+    
+    const rows = text.split('\n').map(row => {
+      return row.split('","').map(val => val.replace(/^"|"$/g, '').trim());
+    });
+
+    let foundRow = null;
+
+    for(let i = 1; i < rows.length; i++) {
+      const colA = rows[i][0] ? rows[i][0].toLowerCase() : '';
+      if(colA.includes(query) || query.includes(colA)) {
+        foundRow = rows[i];
+        break;
+      }
+    }
+
+    if(foundRow) {
+      const colB = foundRow[1] || '';
+      const bParts = colB.split('(');
+      const shlokaText = bParts[0].trim().replace(/\n/g, '<br>');
+      const shlokaRef = bParts[1] ? '(' + bParts[1].trim() : '— श्रीमद्भगवद्गीता';
+
+      const colC = foundRow[2] || '';
+      const cParts = colC.split('\n'); 
+      const meaningText = cParts[0].trim();
+      const exampleText = cParts.slice(1).join('\n').trim() || '💡 कर्म ही पूजा है। अपने कर्म पर ध्यान केंद्रित करें।';
+
+      const englishTranslation = foundRow[3] || 'No English translation available.';
+
+      currentTopicData = {
+        tag: "समाधान — मार्गदर्शक",
+        shloka: shlokaText,
+        ref: shlokaRef,
+        meaning_title: "अनुवाद",
+        meaning: meaningText,
+        example_title: "व्यावहारिक उदाहरण",
+        example: exampleText
+      };
+
+      if(currentLang === 'en') {
+        currentTopicData = {
+          tag: "SOLUTION — GUIDANCE",
+          shloka: shlokaText,
+          ref: shlokaRef,
+          meaning_title: "Translation",
+          meaning: englishTranslation,
+          example_title: "Modern Example",
+          example: "Focus on your actions and stay resilient."
+        };
+      }
+
+      document.getElementById('result-area').innerHTML = `
+        <div class="result-card">
+          <span class="shloka-title-tag">✨ ${currentTopicData.tag}</span>
+          <div class="shloka-text" id="shloka-text-el">${currentTopicData.shloka}</div>
+          <div class="shloka-ref">${currentTopicData.ref}</div>
+          <div class="divider"></div>
+          <div class="meaning-title">${currentTopicData.meaning_title}</div>
+          <div class="meaning-text" id="audio-meaning">${currentTopicData.meaning}</div>
+          <div class="meaning-title">${currentTopicData.example_title}</div>
+          <div class="example-text-line" id="audio-example">${currentTopicData.example}</div>
+          <div class="action-bar">
+            <button class="act-btn act-voice" id="audio-toggle-btn" onclick="toggleSpeechAudio()" title="Play Audio">🔊</button>
+            <button class="act-btn act-share" onclick="openShareSheet()" title="Share">📤</button>
+            <button class="act-btn act-wa" onclick="shareWhatsAppStatus()" title="WhatsApp Status">
+              <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.523 5.858L0 24l6.335-1.496A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.378l-.36-.214-3.732.881.936-3.618-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
+            </button>
+          </div>
+        </div>`;
+      
+      document.getElementById('result-area').scrollIntoView({behavior:'smooth',block:'start'});
+      stopSpeechAudioDirect();
+
     } else {
       showNoResult();
     }
-    return;
+  } catch(e) {
+    showNoResult();
   }
-
-  const localTopic = findTopicKey(query);
-  if(localTopic){
-    setCache(cacheKey,{topic:localTopic});
-    currentTopic=localTopic;
-    try{ history.pushState({problem:localTopic},'','?problem='+localTopic); }catch(e){}
-    showResultCard(localTopic);
-    return;
-  }
-
-  /* Gemini fallback via /api/gita (Vercel serverless) */
-  showLoading();
-  try{
-    const resp = await fetch('/api/gita?q='+encodeURIComponent(query)+'&lang='+currentLang);
-    if(resp.ok){
-      const d = await resp.json();
-      if(d && d.topic && GITA_DB[d.topic]){
-        setCache(cacheKey,{topic:d.topic});
-        currentTopic=d.topic;
-        showResultCard(d.topic);
-      } else { showNoResult(); }
-    } else { showNoResult(); }
-  }catch(e){ showNoResult(); }
 }
+
 
 function showLoading(){
   document.getElementById('result-area').innerHTML=`<div class="loading-state"><div class="spinner"></div><span>${currentLang==='hi'?'गीता का मार्गदर्शन खोज रहे हैं...':'Searching Gita\'s guidance...'}</span></div>`;
